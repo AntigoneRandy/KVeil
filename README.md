@@ -135,7 +135,7 @@ This repository is a cleaned-up version of our code, prepared for reproducibilit
 
 The full technical report of this solution is *KVeil: First-Place Solution to ECCV 2026 LifeGenIP Challenge on Unlearnable Videos*. The method builds on our research paper *LETHE: Defending against Unauthorized Image-to-Video Generation via Value Diversity Collapse*, which presents the motivation, theoretical analysis and extensive experiments in detail. If you find this work helpful, please consider citing:
 
-​```bibtex
+```bibtex
 @article{li2026kveil,
   title   = {KVeil: First-Place Solution to ECCV 2026 LifeGenIP Challenge on Unlearnable Videos},
   author  = {Li, Boheng and Xing, Yueming and Li, Yiming and Zhang, Jie and Qiu, Han and Zhang, Tianwei},
@@ -149,7 +149,7 @@ The full technical report of this solution is *KVeil: First-Place Solution to EC
   journal = {arXiv preprint},
   year    = {2026}
 }
-​```
+```
 
 The development code of LETHE, with better readability and portability, will be released later. Stay tuned!
 
