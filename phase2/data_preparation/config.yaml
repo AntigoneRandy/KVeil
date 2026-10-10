@@ -1,0 +1,35 @@
+dataset_name: M003
+archive: ./data/original/video.tar
+source_root: ./data/original
+output_dir: ./data/preprocessed
+protected_root: ./data/protected
+generated_root: ./data/generated
+attacked_root: ./data/attacked
+results_root: ./data/results
+target:
+  width: 640
+  height: 480
+  num_frames: 113
+identities:
+  - id: M003
+    clips:
+      - src: front/neutral/level_1/014.mp4
+        name: front_neutral_l1_014
+      - src: front/happy/level_2/028.mp4
+        name: front_happy_l2_028
+      - src: front/angry/level_2/026.mp4
+        name: front_angry_l2_026
+      - src: front/sad/level_1/006.mp4
+        name: front_sad_l1_006
+      - src: front/disgusted/level_3/015.mp4
+        name: front_disgusted_l3_015
+      - src: front/contempt/level_1/017.mp4
+        name: front_contempt_l1_017
+      - src: front/fear/level_1/020.mp4
+        name: front_fear_l1_020
+      - src: front/happy/level_3/028.mp4
+        name: front_happy_l3_028
+      - src: front/angry/level_1/019.mp4
+        name: front_angry_l1_019
+      - src: front/angry/level_3/026.mp4
+        name: front_angry_l3_026

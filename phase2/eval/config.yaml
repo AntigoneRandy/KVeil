@@ -1,0 +1,59 @@
+seed: 42
+
+i2v:
+  generation:
+    reference_image:
+      id: M003
+      vid: front_neutral_l1_014
+      frame: 0
+    width: 640
+    height: 480
+    num_frames: 113
+    fps: 24
+    num_inference_steps: 25
+    guidance_scale: 5.0
+    prompt: "the person is talking to the camera"
+    negative_prompt: "head turning, looking away, looking down, nodding, shaking head, large pose change, camera movement, zoom, pan, hand covering face, identity change, face distortion, deformed mouth, asymmetrical eyes, distorted teeth, changing hairstyle, changing clothes, background change, flickering background, flickering lights, brightness flickering, unstable lighting"
+
+  tracks:
+    effectiveness:
+      enabled: true
+      models: [WAN2.2_5B]
+
+    robustness:
+      enabled: true
+      models: [WAN2.2_5B]
+      attacks: [avg3]
+
+    transferability:
+      enabled: true
+      models: [CogVideoX1.5_5B_I2V]
+
+finetune:
+  trigger_word: "p3r5on"
+  caption: "the p3r5on is talking to the camera"
+  negative_prompt:  "head turning, looking away, looking down, nodding, shaking head, large pose change, camera movement, zoom, pan, hand covering face, identity change, face distortion, deformed mouth, asymmetrical eyes, distorted teeth, changing hairstyle, changing clothes, background change, flickering background, flickering lights, brightness flickering, unstable lighting"
+  train:
+    steps: 1500
+    sample_every: 1500
+    save_every: 1500
+  prompts:
+    - name: talking
+      prompt: "the p3r5on is talking to the camera"
+
+  tracks:
+    effectiveness:
+      enabled: true
+      models: [WAN2.2_5B]
+
+    robustness:
+      enabled: true
+      models: [WAN2.2_5B]
+      attacks: [avg3]
+
+    transferability:
+      enabled: false
+      models: []
+
+budget:
+  linf: 16

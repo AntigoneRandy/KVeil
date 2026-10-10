@@ -1,0 +1,23 @@
+clip:
+  id: M003
+  vid: front_neutral_level_1
+  frame: 0
+
+prompt: "the person is talking to the camera"
+seed: 42
+
+tracks:
+  effectiveness:
+    enabled: true
+  robustness:
+    enabled: true
+    attacks: [avg3]
+
+i2v:
+  num_frames: 113
+  num_inference_steps: 25
+  guidance_scale: 5.0
+  negative_prompt: "head turning, looking away, looking down, nodding, shaking head, large pose change, camera movement, zoom, pan, hand covering face, identity change, face distortion, deformed mouth, asymmetrical eyes, distorted teeth, changing hairstyle, changing clothes, background change, flickering background, flickering lights, brightness flickering, unstable lighting"
+
+budget:
+  linf: 16

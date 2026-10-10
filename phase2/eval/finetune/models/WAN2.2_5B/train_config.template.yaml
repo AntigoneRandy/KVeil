@@ -1,0 +1,69 @@
+---
+job: extension
+config:
+  name: "${run_name}"
+  process:
+    - type: sd_trainer
+      training_folder: "${output_dir}"
+      device: ${device}
+      trigger_word: "${trigger_word}"
+      network:
+        type: lora
+        linear: ${rank}
+        linear_alpha: ${alpha}
+      save:
+        dtype: float16
+        save_every: ${save_every}
+        max_step_saves_to_keep: 4
+        push_to_hub: false
+      datasets:
+        - folder_path: "${dataset_dir}"
+          caption_ext: txt
+          caption_dropout_rate: 0.05
+          shuffle_tokens: false
+          do_i2v: false
+          cache_latents_to_disk: ${cache_latents_to_disk}
+          num_frames: ${num_frames}
+          resolution: ${resolution}
+      train:
+        batch_size: ${batch_size}
+        steps: ${steps}
+        gradient_accumulation: ${gradient_accumulation}
+        train_unet: true
+        train_text_encoder: false
+        gradient_checkpointing: true
+        noise_scheduler: flowmatch
+        timestep_type: linear
+        optimizer: adamw8bit
+        lr: ${lr}
+        optimizer_params:
+          weight_decay: 1e-4
+        skip_first_sample: ${skip_first_sample}
+        disable_sampling: ${disable_sampling}
+        dtype: ${dtype}
+        switch_boundary_every: 10
+        cache_text_embeddings: ${cache_text_embeddings}
+      model:
+        name_or_path: "${model_path}"
+        arch: ${arch}
+        quantize: true
+        qtype: qfloat8
+        quantize_te: true
+        qtype_te: qfloat8
+        low_vram: true
+      sample:
+        sampler: flowmatch
+        sample_every: ${sample_every}
+        width: ${sample_width}
+        height: ${sample_height}
+        num_frames: ${sample_num_frames}
+        fps: ${sample_fps}
+        prompts: ${sample_prompts}
+        neg: "${negative_prompt}"
+        seed: ${sample_seed}
+        guidance_scale: ${guidance_scale}
+        sample_steps: ${sample_steps}
+        network_multiplier: ${network_multiplier}
+meta:
+  name: "${run_name}"
+  version: "1.0"

@@ -1,0 +1,49 @@
+# Pinned dependencies for the PROTECTION environment, i.e. for running
+#     python protect/run.py --method my_method
+#
+# This is NOT the same as requirements.txt, which pins the kit's EVALUATION stack
+# (ai-toolkit, fine-tuning, metrics) and installs a different diffusers build.
+# Install them into two separate conda environments.
+#
+#   conda create -n lifegenip-protect python=3.10 -y
+#   conda activate lifegenip-protect
+#   conda install -c conda-forge ffmpeg=5.0.1 -y      # <- not pip-installable, see note below
+#   pip install -r requirements-protect.txt
+#
+# ffmpeg is a runtime dependency, not a Python package: it writes the output mp4s AND is called
+# inside the H.264 EOT augmentation, so the libx264 build is part of the forward pass. We used
+# conda-forge ffmpeg 5.0.1. `PHASE2_FFMPEG` can pin a specific binary at run time.
+#
+# Versions below are the ones of the environment in which we verified the reproduction
+# (see README.md -> Reproducibility Notes). `diffusers` is the one pin that is load-bearing:
+# other releases change the Wan2.2 pipeline/attention internals. The rest are pinned simply
+# because these are the versions we tested.
+
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+torch==2.10.0+cu128
+
+diffusers==0.37.1
+transformers==4.57.6
+accelerate==1.14.0
+safetensors==0.8.0
+sentencepiece==0.2.2
+ftfy==6.3.1
+huggingface-hub==0.36.2
+
+kornia==0.8.2
+opencv-python==4.13.0.92
+scikit-image==0.25.2
+scipy==1.15.3
+numpy==2.2.6
+pillow==12.3.0
+tqdm==4.70.0
+
+# face detection / landmarks (detection + landmark sub-models only; no recognition head is loaded)
+cython==3.2.9
+insightface==0.7.3
+onnxruntime-gpu==1.23.2
+
+# used by protect/run.py + utils/io_video.py to read and write the clips
+decord==0.6.0
+pyyaml==6.0.3

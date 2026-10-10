@@ -1,0 +1,29 @@
+arch: wan22_5b
+device: cuda:0
+dtype: bf16
+train:
+  rank: 32
+  alpha: 32
+  lr: 1e-4
+  batch_size: 1
+  gradient_accumulation: 1
+  num_frames: 113
+  resolution: [640]
+  cache_text_embeddings: true
+  cache_latents_to_disk: true
+  skip_first_sample: true
+  disable_sampling: false
+paths:
+  toolkit_root: third_party/ai-toolkit
+  work_dir: data/generated/{method}/finetune/{track}/{model}
+  dataset_dir: dataset
+  output_dir: output
+  rendered_config: train_config.yaml
+inference:
+  width: 640
+  height: 480
+  num_frames: 113
+  fps: 24
+  num_inference_steps: 25
+  guidance_scale: 5.0
+  network_multiplier: 1.0

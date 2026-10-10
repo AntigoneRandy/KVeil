@@ -1,0 +1,14 @@
+data/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+# downloaded weights and third-party tools (see README)
+/models/
+/phase1/models/
+/phase2/models/
+/phase2/third_party/

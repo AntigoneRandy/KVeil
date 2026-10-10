@@ -1,0 +1,13 @@
+source_root: ./data/original
+archive: ./data/original/video.tar
+output_dir: ./data/preprocessed
+
+target:
+  width: 640
+  height: 480
+  num_frames: 113
+
+identities:
+  - id: M003
+    clips:
+      - { src: front/neutral/level_1/001.mp4, name: front_neutral_level_1 }
