@@ -1,6 +1,6 @@
 # KVeil (ECCV 2026 LifeGenIP Challenge, 1st Place)
 
-This repository contains the official implementation for "KVeil: First-Place Solution to ECCV 2026 LifeGenIP Challenge on Unlearnable Videos", our first-place solution to both phases of the [ECCV 2026 LifeGenIP Challenge on Unlearnable Videos](https://lifegenip.cc/competition).
+This repository contains the official implementation for "KVeil: First-Place Solution to ECCV 2026 LifeGenIP Challenge on Unlearnable Videos", our first-place solution to both phases of the [ECCV 2026 LifeGenIP Challenge on Unlearnable Videos against Diffusion-based Customization](https://lifegenip.cc/competition).
 
 The challenge asks for an imperceptible perturbation (`L∞ ≤ 16/255`) on face videos that stops them from being used for identity customization by video diffusion models.
 
